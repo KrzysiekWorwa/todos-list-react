@@ -6,28 +6,28 @@ import Section from "./Section";
 import Header from "./Header";
 import Container from "./Container";
 
-function App() {
-
-const saveTasksToLocalStorage = (tasks) => {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-};
-
 const loadTasksFromLocalStorage = () => {
   const savedTasks = localStorage.getItem("tasks");
   if (savedTasks) {
-      return JSON.parse(savedTasks);
+    return JSON.parse(savedTasks);
   }
-
   return [];
 };
+
+
+function App() {
+
+  const saveTasksToLocalStorage = (tasks) => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  };
 
   const [hideDone, setHideDone] = useState(false);
   const [tasks, setTasks] = useState(loadTasksFromLocalStorage());
 
 
-useEffect(() => {
-  saveTasksToLocalStorage(tasks);
-}, [tasks]);
+  useEffect(() => {
+    saveTasksToLocalStorage(tasks);
+  }, [tasks]);
 
   const toggleHideDone = () => {
     setHideDone(hideDone => !hideDone);
