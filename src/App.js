@@ -5,10 +5,21 @@ import Buttons from "./Buttons";
 import Section from "./Section";
 import Header from "./Header";
 import Container from "./Container";
-import {saveTasksToLocalStorage, loadTasksFromLocalStorage} from "./LocalStorage"
-
 
 function App() {
+
+const saveTasksToLocalStorage = (tasks) => {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+};
+
+const loadTasksFromLocalStorage = () => {
+  const savedTasks = localStorage.getItem("tasks");
+  if (savedTasks) {
+      return JSON.parse(savedTasks);
+  }
+
+  return [];
+};
 
   const [hideDone, setHideDone] = useState(false);
   const [tasks, setTasks] = useState(loadTasksFromLocalStorage());
