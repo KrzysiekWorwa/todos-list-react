@@ -11,12 +11,8 @@ import {saveTasksToLocalStorage, loadTasksFromLocalStorage} from "./LocalStorage
 function App() {
 
   const [hideDone, setHideDone] = useState(false);
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(loadTasksFromLocalStorage());
 
-useEffect(() => {
-  const savedTasks = loadTasksFromLocalStorage();
-  setTasks(savedTasks)
-}, []);
 
 useEffect(() => {
   saveTasksToLocalStorage(tasks);
