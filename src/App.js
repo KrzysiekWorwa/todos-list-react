@@ -1,19 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Form from "./Form";
 import Tasks from "./Tasks";
 import Buttons from "./Buttons";
 import Section from "./Section";
 import Header from "./Header";
 import Container from "./Container";
-
-
-
+import {saveTasksToLocalStorage, loadTasksFromLocalStorage} from "./LocalStorage"
 
 
 function App() {
 
   const [hideDone, setHideDone] = useState(false);
   const [tasks, setTasks] = useState([]);
+
+useEffect(() => {
+  const savedTasks = loadTasksFromLocalStorage();
+  setTasks(savedTasks)
+}, []);
+
+useEffect(() => {
+  saveTasksToLocalStorage(tasks);
+}, [tasks]);
 
   const toggleHideDone = () => {
     setHideDone(hideDone => !hideDone);
@@ -49,6 +56,7 @@ function App() {
       },
     ]);
   };
+
   return (
     <Container>
       <Header title="Lista zadań" />
