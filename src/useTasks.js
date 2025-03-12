@@ -8,23 +8,17 @@ const loadTasksFromLocalStorage = () => {
     return [];
 };
 
-const saveTasksToLocalStorage = (tasks) => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-};
-
-
-
 export const useTasks = () => {
 
     const [tasks, setTasks] = useState(loadTasksFromLocalStorage);
 
     useEffect(() => {
-        saveTasksToLocalStorage(tasks);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
     }, [tasks]);
 
     const removeTask = (id) => {
         setTasks(tasks => tasks.filter(task => task.id !== id));
-    }
+    };
 
     const toggleTaskDone = (id) => {
         setTasks(tasks => tasks.map(task => {
@@ -33,7 +27,7 @@ export const useTasks = () => {
             }
             return task;
         }));
-    }
+    };
 
     const setAllDone = () => {
         setTasks(tasks => tasks.map(task => ({
