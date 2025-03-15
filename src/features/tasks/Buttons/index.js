@@ -7,10 +7,12 @@ const Buttons = () => {
     const {tasks, hideDone} = useSelector(selectTasks);
     const dispatch = useDispatch();
 
+    const hasDoneTasks = tasks.some(({ done }) => done);
+
     return (
     tasks.length > 0 && (
         <ButtonsDiv>
-        <Button onClick={() => dispatch(toggleHideDone())} >
+        <Button onClick={() => dispatch(toggleHideDone())} disabled={!hasDoneTasks} >
           {hideDone ? "Pokaż" : "Ukryj"} ukończone
         </Button>
             <Button
