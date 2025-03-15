@@ -23,7 +23,7 @@ export const Content = styled.span`
     word-wrap: break-word;
     overflow: hidden;
 
-    ${({ done }) => done && css`
+    ${({ $done }) => $done && css`
         text-decoration: line-through;
     `}
 `;
@@ -36,7 +36,7 @@ export const Button = styled.button`
     padding: 0;
     transition: 0.3s;
 
-    ${({ toggleDone }) => toggleDone && css`
+    ${({ $toggleDone }) => $toggleDone && css`
         background-color: hsl(120, 61%, 34%);
 
         &:hover {
@@ -48,7 +48,7 @@ export const Button = styled.button`
         }
     `}
 
-    ${({ remove }) => remove && css`
+    ${({ $remove }) => $remove && css`
         background-color: hsl(348, 83%, 47%);
 
         &:hover {
