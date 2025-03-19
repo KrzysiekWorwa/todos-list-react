@@ -7,8 +7,7 @@ import {
     selectAreTasksEmpty,
     selectIsEveryTaskDone,
     selectHideDone,
-    selectIsAnyTaskDone
-} from "../tasksSlice";
+    selectIsAnyTaskDone } from "../../tasksSlice"
 
 const Buttons = () => {
 
