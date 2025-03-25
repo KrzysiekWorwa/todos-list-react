@@ -1,11 +1,11 @@
 import Form from "./Form";
 import TasksList from "./TaskList";
-import Buttons from "./Buttons";
+import Buttons from "./Buttons/Button";
 import Section from "../../../common/Section";
 import Header from "../../../common/Header";
 import Container from "../../../common/Container";
 import Search from "./Search";
-import ExampleTasksButton from "./ExampleTasksButton";
+import ExampleTasksButton from "./Buttons/ExampleTasksButton";
 
 function TasksPage() {
 
