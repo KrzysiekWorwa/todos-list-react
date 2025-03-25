@@ -1,9 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
-import { ButtonsDiv, Button } from "./styled";
+import { ButtonsDiv, Button } from "../styled";
 import {
     toggleHideDone,
     setAllDone,
-    fetchExampleTasks,
     selectAreTasksEmpty,
     selectIsEveryTaskDone,
     selectHideDone,
@@ -20,9 +19,6 @@ const Buttons = () => {
 
     return (
         <ButtonsDiv>
-            <Button onClick={() => dispatch(fetchExampleTasks())}>
-                Pobierz przykładowe zadania
-            </Button>
             {!areTasksEmpty && (
                 <>
                     <Button onClick={() => dispatch(toggleHideDone())} disabled={!isAnyTaskDone}
