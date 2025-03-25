@@ -7,7 +7,7 @@ const AuthorPage = () => (
     <Header title="O autorze" />
 
     <Section
-      title="Krzysiek Worwa"
+      title="Krzysztof Worwa"
       body={<>
           <strong> Jest to moja pierwsza strona internetowa.</strong> Postaram
           się w niej przećwiczyć <em>jak najwięcej</em> aspektów, które pomogą mi
